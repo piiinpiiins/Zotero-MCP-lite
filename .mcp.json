@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "zotero": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/PATH/TO/Zotero-MCP-lite",
+        "run",
+        "python",
+        "-m",
+        "src.zotero_mcp.server"
+      ]
+    }
+  }
+}
