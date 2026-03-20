@@ -2,6 +2,14 @@
 
 這是一個提供給支援 **Model Context Protocol (MCP)** 客戶端使用的伺服器軟體，讓 AI 能夠具備讀取與搜尋您本機 Zotero 書目資料庫的技能。目前主流多搭配 **Claude Desktop App** 使用。
 
+## 教學影片
+
+### Zotero MCP 快速上手教學
+[![Zotero MCP 快速上手教學](https://img.youtube.com/vi/hX1j51926tM/maxresdefault.jpg)](https://youtu.be/hX1j51926tM)
+
+### 如何安裝 Zotero MCP-lite
+[![如何安裝 Zotero MCP-lite](https://img.youtube.com/vi/fpTDE3DQxp4/maxresdefault.jpg)](https://youtu.be/fpTDE3DQxp4)
+
 ## 前置需求
 
 - **Python >= 3.10**
