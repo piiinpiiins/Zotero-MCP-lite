@@ -2,20 +2,6 @@
 
 這是一個提供給支援 **Model Context Protocol (MCP)** 客戶端使用的伺服器軟體，讓 AI 能夠具備讀取與搜尋您本機 Zotero 書目資料庫的技能。目前主流多搭配 **Claude Desktop App** 使用。
 
-## 如何連接到 Claude Desktop
-
-這支程式並不需要傳統的「安裝檔」，而是透過設定檔將其連接至 Claude：
-
-1. 電腦需先依據下方的「前置需求」與「安裝步驟」處理完畢
-2. 開啟或建立您的 Claude Desktop 設定檔：
-   - **Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-3. 將本資料夾中 `.mcp.json` 的內容複製並合併至 `claude_desktop_config.json` 裡面
-4. **修改路徑**：務必將剛貼上內容中的 `/PATH/TO/Zotero-MCP-lite` 更改為本專案資料夾的**實際絕對路徑**
-5. **完全重啟 Claude**：儲存設定檔並將 Claude Desktop 完全退開（Quit 等）後重新連線，屆時右小角若出現 🔌 (或鐵鎚) 的圖示，即表示伺服器啟動成功！
-
----
-
 ## 前置需求
 
 - **Python >= 3.10**
@@ -62,6 +48,53 @@
      set ZOTERO_DB_PATH="C:\您的\路徑\zotero.sqlite"
      ```
    或在 `.mcp.json` 的 args 裡加上環境變數設定。
+
+---
+
+## 如何連接到 Claude Desktop
+
+完成上方的「前置需求」與「安裝步驟」後，透過以下步驟將程式連接至 Claude：
+
+1. 開啟 Claude Desktop 的設定檔 `claude_desktop_config.json`（二擇一）：
+
+   **方法 A — 從 Claude Desktop App 內開啟（推薦）**：
+   1. 開啟 Claude Desktop App
+   2. 點擊左上角選單 **Claude → Settings**（Mac）或 **File → Settings**（Windows）
+   3. 點選左側的 **Developer**
+   4. 點擊 **Edit Config** 按鈕，系統會自動用文字編輯器打開 `claude_desktop_config.json`
+
+   **方法 B — 手動開啟檔案**：
+   - **Mac**: 打開 Finder，按 `Cmd + Shift + G`，貼上 `~/Library/Application Support/Claude/`，找到 `claude_desktop_config.json` 並用文字編輯器開啟。若檔案不存在，請自行新建。
+   - **Windows**: 按 `Win + R`，輸入 `%APPDATA%\Claude`，找到 `claude_desktop_config.json` 並用文字編輯器開啟。若檔案不存在，請自行新建。
+
+2. 將本資料夾中 `.mcp.json` 的內容複製並合併至 `claude_desktop_config.json` 裡面
+3. **修改路徑**：務必將剛貼上內容中的 `/PATH/TO/Zotero-MCP-lite` 更改為本專案資料夾的**實際絕對路徑**
+
+   例如，若您將資料夾放在桌面，路徑為 `/Users/huang/Desktop/Zotero-MCP-lite-main`，則 `claude_desktop_config.json` 應修改為：
+
+   ```json
+   {
+     "mcpServers": {
+       "zotero": {
+         "command": "uv",
+         "args": [
+           "--directory",
+           "/Users/huang/Desktop/Zotero-MCP-lite-main",
+           "run",
+           "python",
+           "-m",
+           "src.zotero_mcp.server"
+         ]
+       }
+     }
+   }
+   ```
+
+   > **注意**：如果您的 `claude_desktop_config.json` 裡已有其他設定（如 `coworkScheduledTasksEnabled` 等），請確保 `mcpServers` 與它們平行放置，不要把其他設定放進 `mcpServers` 裡面。
+
+4. **完全重啟 Claude**：儲存設定檔並將 Claude Desktop 完全退開（Quit 等）後重新連線，屆時右小角若出現 🔌 (或鐵鎚) 的圖示，即表示伺服器啟動成功！
+
+---
 
 ## 驗證
 
