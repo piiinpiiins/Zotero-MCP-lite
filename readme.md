@@ -4,9 +4,6 @@
 
 ## 教學影片
 
-### Zotero MCP 快速上手教學
-[![Zotero MCP 快速上手教學](https://img.youtube.com/vi/hX1j51926tM/maxresdefault.jpg)](https://youtu.be/hX1j51926tM)
-
 ### 如何安裝 Zotero MCP-lite
 [![如何安裝 Zotero MCP-lite](https://img.youtube.com/vi/fpTDE3DQxp4/maxresdefault.jpg)](https://youtu.be/fpTDE3DQxp4)
 
