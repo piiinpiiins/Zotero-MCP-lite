@@ -2,6 +2,17 @@
 
 這是一個提供給支援 **Model Context Protocol (MCP)** 客戶端使用的伺服器軟體，讓 AI 能夠具備讀取與搜尋您本機 Zotero 書目資料庫的技能。目前主流多搭配 **Claude Desktop App** 使用。
 
+## 快速安裝（PyPI 版，推薦）
+
+不想手動下載資料夾？已安裝 uv 的話，直接在 `claude_desktop_config.json` 加入以下設定即可（套件：https://pypi.org/project/zotero-mcp-local/）：
+
+```json
+{ "mcpServers": { "zotero": { "command": "uvx", "args": ["zotero-mcp-local"] } } }
+```
+
+存檔後完全重啟 Claude Desktop 即可使用。以下章節為手動（下載資料夾）安裝方式。
+
+---
 ## 教學影片
 
 ### 如何安裝 Zotero MCP-lite
@@ -145,3 +156,11 @@ uv run python -m src.zotero_mcp.server
    - **解法**：預設路徑通常為 `~/Zotero/zotero.sqlite`。如果找不到，請打開終端機 (Terminal) 輸入以下指令搜尋：
      - **Spotlight 快速搜尋（推薦）**：`mdfind -name "zotero.sqlite"`
      - **個人目錄深度搜尋**：`find ~ -name "zotero.sqlite" 2>/dev/null`
+    
+---
+
+## 進階版（Pro）
+
+需要更完整的研究分析工具嗎？Pro 版多了四個工具：Connected Papers 關聯圖與視覺化、跨論文整理作者自述的研究限制與未來方向、跨論文關鍵段落搜尋（附頁碼）。
+
+👉 Zotero-MCP Pro（US$30 一次買斷，含中英安裝指南與診斷工具）：https://3718181853007.gumroad.com/l/calm-study-partner
