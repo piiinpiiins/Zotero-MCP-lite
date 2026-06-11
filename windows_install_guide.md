@@ -26,8 +26,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 { "mcpServers": { "zotero": { "command": "uvx", "args": ["zotero-mcp-local"] } } }
 ```
 
-> 小提醒：如果檔案裡本來就有別的字，不要刪掉它們，只要把 `"zotero": { ... }` 這部分加進 `mcpServers` 裡面就好。不確定的話，問大人或直接問 Claude。
-
+> 小提醒：如果檔案裡本來就有別的字，不要刪掉它們，只要把 `"zotero": { ... }` 這部分加進 `mcpServers` 裡面就好。不確定怎麼合併的話，把整個檔案內容貼給 Claude，請它幫你改好再貼回來。
 **第 4 步：把 Claude 關掉再打開**
 
 完全關掉 Claude Desktop（不是縮小，是整個關掉），再重新打開一次。這樣 Claude 就會多出讀取你 Zotero 書庫的新本領了！
