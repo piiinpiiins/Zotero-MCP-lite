@@ -4,7 +4,7 @@
 
 ## 快速安裝（PyPI 版，推薦）
 
-不想手動下載資料夾？已安裝 uv 的話，直接在 `claude_desktop_config.json` 加入以下設定即可（套件：https://pypi.org/project/zotero-mcp-local/）：
+不想手動下載資料夾？已安裝 uv 的話，直接在 `claude_desktop_config.json` 加入以下設定即可（套件：https://pypi.org/project/zotero-mcp-local
 
 ```json
 { "mcpServers": { "zotero": { "command": "uvx", "args": ["zotero-mcp-local"] } } }
@@ -47,23 +47,7 @@
 
 ### Windows 安裝步驟
 
-1. 把整個 `Zotero-MCP-lite/` 資料夾複製到 Windows 任意位置
-2. 打開 PowerShell 或命令提示字元 (CMD)，在資料夾內執行：
-   ```bash
-   uv sync
-   ```
-3. 修改 `.mcp.json` 裡的路徑：
-   - 把 `/PATH/TO/Zotero-MCP-lite` 改成實際路徑。注意：Windows 路徑請使用雙反斜線（如 `"C:\\Users\\Name\\Zotero"`）或正斜線（如 `"C:/Users/Name/Zotero"`）。
-4. 如果 Zotero 資料夾不在預設位置，設定環境變數：
-   - PowerShell:
-     ```powershell
-     $env:ZOTERO_DB_PATH="C:\您的\路徑\zotero.sqlite"
-     ```
-   - CMD:
-     ```cmd
-     set ZOTERO_DB_PATH="C:\您的\路徑\zotero.sqlite"
-     ```
-   或在 `.mcp.json` 的 args 裡加上環境變數設定。
+完整 Windows 安裝教學請移至：[windows_install_guide.md](windows_install_guide.md)
 
 ---
 
