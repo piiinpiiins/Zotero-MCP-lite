@@ -4,13 +4,38 @@
 
 ## 快速安裝（PyPI 版，推薦）
 
-不想手動下載資料夾？已安裝 uv 的話，直接在 `claude_desktop_config.json` 加入以下設定即可（套件：https://pypi.org/project/zotero-mcp-local
+不用下載任何資料夾，跟著下面四步做就好。就像幫 Claude 裝一個新玩具，裝好它就會讀你的 Zotero 書庫了。
+
+**第 1 步：先裝一個叫 `uv` 的小幫手**
+
+`uv` 是一個會自動幫你準備好程式的工具。打開「終端機」（Mac）或「PowerShell」（Windows），把下面這行貼進去，按 Enter，等它跑完：
+
+- **Mac**：`curl -LsSf https://astral.sh/uv/install.sh | sh`
+- **Windows**：`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+
+**第 2 步：打開 Claude 的設定檔**
+
+1. 打開 Claude Desktop，點左上角選單的 **Settings（設定）**。
+2. 點 **Developer（開發者）**，再點 **Edit Config（編輯設定）** 按鈕。
+3. 電腦會自動幫你打開一個叫 `claude_desktop_config.json` 的檔案。
+
+**第 3 步：把這段程式碼貼進去**
+
+把下面這段整個複製，貼到剛剛打開的檔案裡，然後存檔（按 `Cmd + S` 或 `Ctrl + S`）：
 
 ```json
 { "mcpServers": { "zotero": { "command": "uvx", "args": ["zotero-mcp-local"] } } }
 ```
 
-存檔後完全重啟 Claude Desktop 即可使用。以下章節為手動（下載資料夾）安裝方式。
+> 小提醒：如果檔案裡本來就有別的字，不要刪掉它們，只要把 `"zotero": { ... }` 這部分加進 `mcpServers` 裡面就好。不確定的話，問大人或直接問 Claude。
+
+**第 4 步：把 Claude 關掉再打開**
+
+完全關掉 Claude Desktop（不是縮小，是整個關掉），再重新打開一次。這樣 Claude 就會多出讀取你 Zotero 書庫的新本領了！
+
+---
+
+> 上面是最簡單的方式。如果你想自己下載整個專案資料夾來安裝，請看下面的章節。
 
 ---
 ## 教學影片
@@ -20,17 +45,15 @@
 
 ## 前置需求
 
-- **Python >= 3.10**
-  - **Mac**: 建議透過 Homebrew 安裝 (`brew install python`)，或至 [Python 官網](https://www.python.org/downloads/) 下載安裝檔。
-  - **Windows**: 至 [Python 官網](https://www.python.org/downloads/) 下載安裝檔（**請注意：安裝時初始畫面最下方務必勾選「Add python.exe to PATH」**）。
-- **[uv](https://docs.astral.sh/uv/) 套件管理工具**
-  - **Mac**: 打開終端機輸入 `curl -LsSf https://astral.sh/uv/install.sh | sh` 或 `brew install uv`
-  - **Windows**: 開啟 PowerShell 並輸入 `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+- **Python >= 3.10**：建議透過 Homebrew 安裝 (`brew install python`)，或至 [Python 官網](https://www.python.org/downloads/) 下載安裝檔。
+- **[uv](https://docs.astral.sh/uv/) 套件管理工具**：打開終端機輸入 `curl -LsSf https://astral.sh/uv/install.sh | sh` 或 `brew install uv`
 - **Zotero 資料夾**（含 `zotero.sqlite`）已放置在本機電腦上
 
-## 安裝步驟
+> Windows 使用者請改看 [windows_install_guide.md](windows_install_guide.md)，裡面有完整的前置需求、安裝步驟與除錯說明。
 
-### Mac 安裝步驟
+## 安裝步驟（Mac）
+
+> Windows 使用者請改看 [windows_install_guide.md](windows_install_guide.md)。
 
 1. 把整個 `Zotero-MCP-lite/` 資料夾複製到 Mac 任意位置
 2. 打開終端機 (Terminal)，在資料夾內執行：
@@ -45,13 +68,11 @@
    ```
    或在 `.mcp.json` 的 args 裡加上環境變數設定。
 
-### Windows 安裝步驟
-
-完整 Windows 安裝教學請移至：[windows_install_guide.md](windows_install_guide.md)
-
 ---
 
-## 如何連接到 Claude Desktop
+## 如何連接到 Claude Desktop（Mac）
+
+> Windows 使用者請改看 [windows_install_guide.md](windows_install_guide.md)。
 
 完成上方的「前置需求」與「安裝步驟」後，透過以下步驟將程式連接至 Claude：
 
@@ -59,13 +80,11 @@
 
    **方法 A — 從 Claude Desktop App 內開啟（推薦）**：
    1. 開啟 Claude Desktop App
-   2. 點擊左上角選單 **Claude → Settings**（Mac）或 **File → Settings**（Windows）
+   2. 點擊左上角選單 **Claude → Settings**
    3. 點選左側的 **Developer**
    4. 點擊 **Edit Config** 按鈕，系統會自動用文字編輯器打開 `claude_desktop_config.json`
 
-   **方法 B — 手動開啟檔案**：
-   - **Mac**: 打開 Finder，按 `Cmd + Shift + G`，貼上 `~/Library/Application Support/Claude/`，找到 `claude_desktop_config.json` 並用文字編輯器開啟。若檔案不存在，請自行新建。
-   - **Windows**: 按 `Win + R`，輸入 `%APPDATA%\Claude`，找到 `claude_desktop_config.json` 並用文字編輯器開啟。若檔案不存在，請自行新建。
+   **方法 B — 手動開啟檔案**：打開 Finder，按 `Cmd + Shift + G`，貼上 `~/Library/Application Support/Claude/`，找到 `claude_desktop_config.json` 並用文字編輯器開啟。若檔案不存在，請自行新建。
 
 2. 將本資料夾中 `.mcp.json` 的內容複製並合併至 `claude_desktop_config.json` 裡面
 3. **修改路徑**：務必將剛貼上內容中的 `/PATH/TO/Zotero-MCP-lite` 更改為本專案資料夾的**實際絕對路徑**
@@ -106,32 +125,7 @@ uv run python -m src.zotero_mcp.server
 
 ## 除錯
 
-### Windows 11 全新系統安裝常見問題
-
-1. **指令不適用 (`export` 錯誤)**
-   - **問題**：在 Windows 執行 `export ZOTERO_DB_PATH="..."` 會顯示無法辨識指令。
-   - **解法**：請依您的終端機改用以下指令（或直接於 `.mcp.json` 設定）：
-     - PowerShell: `$env:ZOTERO_DB_PATH="C:\您的\路徑\zotero.sqlite"`
-     - 命令提示字元 (CMD): `set ZOTERO_DB_PATH="C:\您的\路徑\zotero.sqlite"`
-
-2. **JSON 路徑反斜線報錯**
-   - **問題**：在 `.mcp.json` 中設定 `"C:\Users\Name\Zotero"` 會導致 JSON 解析失敗。
-   - **解法**：請將路徑的反斜線改為雙反斜線 `"C:\\Users\\Name\\Zotero"`，或改用正斜線 `"C:/Users/Name/Zotero"`。
-
-3. **PowerShell 執行原則阻擋腳本**
-   - **問題**：安裝 `uv` 時顯示「無法載入檔案，因為這個系統上已停用指令碼執行」。
-   - **解法**：請以系統管理員身分開啟 PowerShell，並輸入 `Set-ExecutionPolicy RemoteSigned` 來開放權限。或者在安裝時加上 Bypass 參數：
-     `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
-
-4. **Python 找不到指令**
-   - **問題**：安裝完 Python 後，終端機仍提示找不到 `python`。
-   - **解法**：安裝 Python 時，務必在初始畫面最下方勾選 **「Add python.exe to PATH」**。如果忘記勾選，請重新執行安裝程式並選擇 Modify 來補勾。
-
-5. **找不到 Zotero 資料庫 (`zotero.sqlite`)**
-   - **問題**：不知道 Zotero 資料庫存放在哪裡，無法設定 `ZOTERO_DB_PATH`。
-   - **解法**：預設路徑通常為 `C:\Users\您的使用者名稱\Zotero\zotero.sqlite`。如果預設路徑下沒有，您可以使用以下指令進行全機搜尋：
-     - **CMD (推薦)**：打開命令提示字元並輸入 `dir /s /b C:\zotero.sqlite`
-     - **PowerShell**：打開 PowerShell 並輸入 `Get-ChildItem -Path C:\ -Filter zotero.sqlite -Recurse -ErrorAction SilentlyContinue | Select-Object FullName`
+> Windows 常見問題請看 [windows_install_guide.md](windows_install_guide.md) 的除錯章節。
 
 ### Mac 系統常見問題
 

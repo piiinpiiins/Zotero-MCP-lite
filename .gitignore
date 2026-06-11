@@ -3,3 +3,5 @@ Zotero-MCP-lite.code-workspace
 __pycache__/
 *.pyc
 .env
+
+.DS_Store
