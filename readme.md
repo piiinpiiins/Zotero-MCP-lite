@@ -37,13 +37,6 @@
 > 上面是最簡單的方式。如果你想自己下載整個專案資料夾來安裝，請看下面的章節。
 
 ---
-## 教學影片
-
-> 影片示範的是下方「自己下載資料夾」的手動安裝方式；若你已用上面的快速安裝裝好，可直接跳過。
-
-### 如何安裝 Zotero MCP-lite
-[![如何安裝 Zotero MCP-lite](https://img.youtube.com/vi/fpTDE3DQxp4/maxresdefault.jpg)](https://youtu.be/fpTDE3DQxp4)
-
 ## 前置需求
 
 - **Python >= 3.10**：建議透過 Homebrew 安裝 (`brew install python`)，或至 [Python 官網](https://www.python.org/downloads/) 下載安裝檔。
